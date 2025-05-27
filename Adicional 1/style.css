@@ -53,14 +53,15 @@ main {
 }
 
 .text-init {
-  font-size: 4rem;
+  font-size: 3rem;
   max-width: 80%;
   margin-bottom: 1rem; /* Espacio debajo del h1 */
 }
 
 .text-body {
-  margin-top: 1rem; /* Opcional: elimina espacio extra arriba del p */
-  font-size: 2rem;
+  margin-top: 1rem;
+  font-size: 1.5rem;
+  max-width: 1000px;      /* Limita el ancho máximo */
 }
 
 .body-contenedor {
