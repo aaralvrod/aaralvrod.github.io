@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>HyperSpace</title>
+    <link rel="stylesheet" href="../hour_control/style.css" />
+    <link
+      href="../font/TripSans-Medium/style.css"
+      rel="stylesheet"
+      type="text/css"
+    />
+  </head>
+  <body>
+    <header>
+      <div class="header-contenedor">
+        <img src="../images/Hypaerspace-2.png" alt="Logo" class="logo" />
+        <div class="botones-contenedor">
+          <a href="../index.html" class="bottom">Home</a>
+          <a href="../requirements/index.html" class="bottom">Requirements</a>
+          <a href="../swot/index.html" class="bottom">SWOT</a>
+        </div>
+      </div>
+    </header>
+    <main>
+      <div class="body-contenedor">
+        <section class="control-horas">
+          <h2>Control of Hours Worked</h2>
+          <table id="tabla-horas">
+            <thead>
+              <tr>
+                <th>Name</th>
+                <th>Monday</th>
+                <th>Tuesday</th>
+                <th>Wednesday</th>
+                <th>Thursday</th>
+                <th>Friday</th>
+                <th>Total hours</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td contenteditable="true">Worker 1</td>
+                <td contenteditable="true">8</td>
+                <td contenteditable="true">8</td>
+                <td contenteditable="true">7</td>
+                <td contenteditable="true">8</td>
+                <td contenteditable="true">6</td>
+                <td class="total-fila"></td>
+              </tr>
+              <tr>
+                <td contenteditable="true">Worker 2</td>
+                <td contenteditable="true">7</td>
+                <td contenteditable="true">7</td>
+                <td contenteditable="true">8</td>
+                <td contenteditable="true">7</td>
+                <td contenteditable="true">8</td>
+                <td class="total-fila"></td>
+              </tr>
+            </tbody>
+            <tfoot>
+              <tr>
+                <td><strong>Total</strong></td>
+                <td class="total-columna"></td>
+                <td class="total-columna"></td>
+                <td class="total-columna"></td>
+                <td class="total-columna"></td>
+                <td class="total-columna"></td>
+                <td class="total-general"></td>
+              </tr>
+            </tfoot>
+          </table>
+        </section>
+      </div>
+    </main>
+    <footer></footer>
+  </body>
+  <script>
+    function calcularHoras() {
+      const tabla = document.getElementById("tabla-horas");
+      const filas = tabla.querySelectorAll("tbody tr");
+      const totalColumna = [0, 0, 0, 0, 0];
+      let totalGeneral = 0;
+
+      filas.forEach((fila) => {
+        const celdas = fila.querySelectorAll("td");
+        let totalFila = 0;
+        for (let i = 1; i <= 5; i++) {
+          const valor = parseInt(celdas[i].textContent) || 0;
+          totalFila += valor;
+          totalColumna[i - 1] += valor;
+        }
+        celdas[6].textContent = totalFila;
+        totalGeneral += totalFila;
+      });
+
+      const totalColumnas = tabla.querySelectorAll(".total-columna");
+      totalColumna.forEach((valor, i) => {
+        totalColumnas[i].textContent = valor;
+      });
+
+      tabla.querySelector(".total-general").textContent = totalGeneral;
+    }
+    document.querySelectorAll("#tabla-horas td[contenteditable=true]").forEach((celda) => {
+      celda.addEventListener("input", calcularHoras);
+    });
+    calcularHoras();
+  </script>
+</html>

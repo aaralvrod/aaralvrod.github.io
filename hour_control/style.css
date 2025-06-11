@@ -10,6 +10,7 @@
   justify-content: space-between;
   align-items: center;
   padding: 1rem 4rem;
+  background-color: #eee;
 }
 
 .logo {
@@ -19,18 +20,15 @@
 
 .botones-contenedor {
   display: flex;
-  gap: 9rem;
+  gap: 2rem;
 }
 
 .bottom {
-  font-size: 20px;
-  display: inline-block;
+  font-size: 1rem;
   background: #4e95b8;
-  color: #fff;
-  padding: 0.9rem 3rem;
-  border: none;
+  color: white;
+  padding: 0.7rem 1.5rem;
   border-radius: 10px;
-  text-align: center;
   text-decoration: none;
 }
 
@@ -48,24 +46,32 @@ main {
   padding-top: 13rem;
 }
 
-.text-init {
-  font-size: 4rem;
-  max-width: 80%;
-  margin-bottom: 1rem;
+.control-horas {
+  margin: 3rem auto;
+  text-align: center;
+  width: 90%;
+  max-width: 1000px;
 }
 
-.text-body {
-  margin-top: 1rem;
-  font-size: 2rem;
+.control-horas table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 1rem;
 }
 
-.body-contenedor {
-  display: flex;
-  align-items: center;
-  gap: 1rem;
+.control-horas th,
+.control-horas td {
+  border: 1px solid #ccc;
+  padding: 0.6rem;
+  text-align: center;
 }
 
-.estrella {
-  width: 70px;
-  display: block;
+.control-horas th {
+  background-color: #4e95b8;
+  color: white;
+}
+
+tfoot td {
+  font-weight: bold;
+  background-color: #f2f2f2;
 }
